@@ -49,15 +49,16 @@ class ReserveTable extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="reserve-table-holder">
         {_.get(this.props, 'showFloorButtons', false) ? <FloorLevelButtons floors={this.state.floors} changeFloor={this.changeFloor} floorSelected={this.state.floorSelected} /> : <></>}
         <DataTable
           title={`${this.state.building} ${this.state.floors[this.state.floorSelected]} floor`}
           columns={this.state.columns}
           data={this.state.data}
           sortFunction={this.sortFunction}
+          className='reserve-table'
         />
-      </>
+      </div>
     );
   }
 }

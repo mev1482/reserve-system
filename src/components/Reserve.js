@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import ReserveMap from './reserve-page/ReserveMap';
 import ReserveTable from './reserve-page/ReserveTable';
 import DateSelector from './reserve-page/DateSelector'

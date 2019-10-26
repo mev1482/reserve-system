@@ -1,5 +1,18 @@
 .reserve-main {
   display: flex;
-  flex direction: row;
-  align-items: stretch;
+  flex-direction: row;
+  overflow-x: visible;
+}
+
+.left-side-reserve {
+  flex-grow: 2;
+}
+
+
+.middle-reserve{
+  flex-grow: 1;
+}
+
+.right-side-reserve{
+  flex-grow: 5;
 }

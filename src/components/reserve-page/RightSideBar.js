@@ -5,9 +5,9 @@ class RightSideBar extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="right-side-bar">
         <button onClick={this.props.toggleView}>Toggle</button>
-        <button>Submit</button>
+        <button className="submit-button">Submit</button>
       </div>
     );
   }
