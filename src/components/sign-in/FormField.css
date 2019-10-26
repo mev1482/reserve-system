@@ -1,0 +1,9 @@
+.FormField {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  display: flex;
+  justify-content: space-between;
+}

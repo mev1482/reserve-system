@@ -33,17 +33,22 @@ export default function Header(/* {account}*/) {
   return (
     <div className="Header">
       <div className="heading">
-        <img id="rit-logo" src={ritLogo} alt="" width="auto" height="auto" />
+        <a
+          href="http://www.rit.edu" target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img id="rit" src={ritLogo} alt="" width="auto" height="auto" />
+        </a>
         <div>
           <a
-            href="#user-logo"
+            href="#user"
             onClick={(e) => {
               e.preventDefault();
               setShowAccount(!showAccount);
             }}
           >
             <img
-              id="user-logo"
+              id="user"
               src={userLogo}
               alt=""
               width="auto"

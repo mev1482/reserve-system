@@ -1,0 +1,18 @@
+.SignIn {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+input[type="button"] {
+  width: 10ch;
+  margin: 1%;
+  /* Position flex item to end of container */
+  margin-left: auto;
+}
