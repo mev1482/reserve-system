@@ -9,7 +9,7 @@ function AccountMenu({ account }) {
       <span>
         Logged in as:&nbsp;
         {account.first}
-&nbsp;
+        &nbsp;
         {account.last}
       </span>
       <span>
@@ -20,6 +20,7 @@ function AccountMenu({ account }) {
   );
 }
 
+// Fake account for now; replace upon sign-in
 const account = {
   first: 'Mike',
   last: 'K',
