@@ -1,0 +1,36 @@
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5em;
+  background-color: #F76902;
+}
+
+img {
+  margin: 1em;
+}
+
+#rit-logo {
+  max-width: 8em;
+  max-height: 8em;
+}
+
+#user-logo {
+  max-width: 3.5em;
+  max-height: 3.5em;
+}
+
+.account-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+  padding: 5px;
+  background-color: #dddddd;
+}
+
+.account-menu > * {
+  padding: 5px 0;
+}

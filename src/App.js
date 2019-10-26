@@ -1,14 +1,16 @@
 import React from 'react';
+import Header from './components/shared/Header';
+import Footer from './components/shared/Footer';
+import Content from './components/Content';
 import './App.css';
-import ReserveMap from './components/reserve-page/ReserveMap';
-import ReserveTable from './components/reserve-page/ReserveTable';
-import DateSelector from './components/reserve-page/DateSelector'
 
 function App() {
   return (
-    <>
-      {false ? <DateSelector /> : <ReserveTable numberRooms={10} showFloorButtons={true} />}
-    </>
+    <div className="App">
+      <Header />
+      <Content />
+      <Footer />
+    </div>
   );
 }
 
