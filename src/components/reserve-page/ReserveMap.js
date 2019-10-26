@@ -1,45 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import _ from 'lodash';
-import FloorLevelButtons from './FloorLevelButtons'
+import FloorLevelButtons from './FloorLevelButtons';
 
 
 class ReserveMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      building: "Library", // to be taken in as a props attribute,
-      floors:["Ground","First","Second","Third","Fourth"], // to be taken in as props attribute
+      building: 'Library', // to be taken in as a props attribute,
+      floors: ['Ground', 'First', 'Second', 'Third', 'Fourth'], // to be taken in as props attribute
       floorSelected: 0,
-      floorImages: ["bottom_floor_library","first_floor_library","second_floor_library","third_floor_library",'fourth_floor_library']
+      floorImages: ['bottom_floor_library', 'first_floor_library', 'second_floor_library', 'third_floor_library', 'fourth_floor_library'],
     };
 
-    this.handleChange= this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.changeFloor = this.changeFloor.bind(this);
   }
 
   changeFloor(newFloor) {
-    let stateHolder = _.clone(this.state);
-    stateHolder.selectedFloor = newFloor;
+    const stateHolder = _.clone(this.state);
+    stateHolder.floorSelected = newFloor;
     this.setState(stateHolder);
   }
 
   handleChange(event) {
-    return;
+
   }
 
   handleSubmit(event) {
-    return;
-  }
 
+  }
 
 
   render() {
     return (
       <div>
-          <FloorLevelButtons floors={["Ground","First","Second","Third","Fourth"]}  changeFloor={this.changeFloor}/>
-          <img src={'./media/' + this.state.floorImages[this.state.selectedFloor] + '.jpg'} alt="library"/ >
+        <FloorLevelButtons floors={['Ground', 'First', 'Second', 'Third', 'Fourth']} changeFloor={this.changeFloor} />
+        <img src={`./media/${this.state.floorImages[this.state.floorSelected]}.jpg`} alt="library" />
       </div>
     );
   }

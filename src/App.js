@@ -6,7 +6,7 @@ import ReserveTable from './components/reserve-page/ReserveTable';
 function App() {
   return (
     <>
-    <ReserveTable/>
+      <ReserveTable/>
     </>
   );
 }
