@@ -3,9 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "lodash": "^4.17.15",
     "react": "^16.10.2",
+    "react-data-table-component": "^3.6.0",
+    "react-datepicker": "^2.9.6",
     "react-dom": "^16.10.2",
-    "react-scripts": "3.2.0"
+    "react-scripts": "3.2.0",
+    "styled-components": "^4.4.0"
   },
   "scripts": {
     "pretest": "eslint --ignore-path .gitignore .",

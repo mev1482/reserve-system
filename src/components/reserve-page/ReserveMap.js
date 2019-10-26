@@ -1,0 +1,60 @@
+import React from 'react';
+import _ from 'lodash';
+import FloorLevelButtons from './FloorLevelButtons';
+import ReserveTable from './ReserveTable';
+
+
+class ReserveMap extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      building: 'Library', // to be taken in as a props attribute,
+      // to be taken in as props attribute
+      floors: ['Ground', 'First', 'Second', 'Third', 'Fourth'],
+      floorSelected: 0,
+      floorImages: ['bottom_floor_library', 'first_floor_library',
+        'second_floor_library', 'third_floor_library', 'fourth_floor_library'],
+      roomTimeSelected: false,
+    };
+
+    this.changeFloor = this.changeFloor.bind(this);
+  }
+
+  changeFloor(newFloor) {
+    if (newFloor !== _.get(this.state, 'floorSelected')) {
+      const stateHolder = _.clone(this.state);
+      stateHolder.roomTimeSelected = false;
+      stateHolder.floorSelected = newFloor;
+      this.setState(stateHolder);
+    }
+  }
+
+  showRoomTime() {
+    const stateHolder = _.clone(this.state);
+    stateHolder.roomTimeSelected = true;
+    this.setState(stateHolder);
+  }
+
+  render() {
+    const imageArray = _.get(this.state, 'floorImages');
+    const selectedFloor = _.get(this.state, 'floorSelected');
+    const roomTimeSelected = _.get(this.state, 'roomTimeSelected', false);
+    return (
+      <div>
+        <FloorLevelButtons
+          floors={['Ground', 'First', 'Second', 'Third',
+            'Fourth']}
+          changeFloor={this.changeFloor}
+        />
+        <img
+          src={`./media/${imageArray[selectedFloor]}.jpg`}
+          onClick={() => this.showRoomTime()}
+          alt="library"
+        />
+        {roomTimeSelected ? <ReserveTable numberRooms={1} /> : <></>}
+      </div>
+    );
+  }
+}
+
+export default ReserveMap;
