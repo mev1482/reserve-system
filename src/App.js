@@ -7,9 +7,7 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Header
-        account={{ first: "Mike", last: "K" }}
-      />
+      <Header />
       <Content />
       <Footer />
     </div>
