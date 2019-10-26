@@ -16,7 +16,7 @@ class ReserveTable extends React.Component {
       floorSelected: 0,
       columns: timeColumns,
       data: fakeData,
-      reserveData,
+      reserveData: reserveData,
       numberRooms: props.numberRooms,
     };
 
