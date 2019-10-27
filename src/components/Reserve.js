@@ -3,6 +3,7 @@ import ReserveMap from './reserve-page/ReserveMap';
 import ReserveTable from './reserve-page/ReserveTable';
 import DateSelector from './reserve-page/DateSelector'
 import RightSideBar from './reserve-page/RightSideBar'
+import './Reserve.css'
 
 class Reserve extends React.Component {
   render() {
