@@ -31,7 +31,7 @@ export default function SignIn({
             redacted
           />
           <Link className="homeLink" to="/">
-            <input type="button" value="Next" onClick={handleClick} />
+            <input type="submit" value="Next" onClick={handleClick} />
           </Link>
         </form>
       </div>

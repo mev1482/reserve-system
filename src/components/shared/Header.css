@@ -11,6 +11,14 @@
   margin: 1em;
 }
 
+.asText {
+  background:none;
+  border:none;
+  margin:0;
+  padding:0;
+  cursor: pointer;
+}
+
 #rit {
   max-width: 8em;
   max-height: 8em;
@@ -35,4 +43,6 @@
 
 .account-menu > * {
   padding: 5px 0;
+  font-family: inherit;
+  font-size: inherit;
 }

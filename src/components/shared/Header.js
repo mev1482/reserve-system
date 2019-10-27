@@ -18,7 +18,13 @@ function AccountMenu({ username, signOut }) {
         {username}
       </span>
       <span>Access: Student</span>
-      <a href="#" onClick={handleClick}>Sign Out</a>
+      <button
+        className="asText"
+        onClick={handleClick}
+        type="button"
+      >
+        Sign Out
+      </button>
       { redirect
         && <Redirect to="/sign-in" />}
     </div>
