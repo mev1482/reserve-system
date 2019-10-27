@@ -1,0 +1,23 @@
+.SignInHeader {
+  width: 100%;
+}
+
+.sign-in-heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5em;
+  background-color: #F76902;
+}
+
+.logo-container {
+  margin-right: 20%;
+}
+
+.logo-container img {
+  margin: 1em;
+}
+
+#rit-white {
+  max-width: 20em;
+}

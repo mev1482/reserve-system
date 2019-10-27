@@ -1,13 +1,97 @@
-import React from 'react';
-import Content from './components/Content';
+import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom';
+import Header from './components/shared/Header';
+import Footer from './components/shared/Footer';
+import SignIn from './components/SignIn';
+import Home from './components/Home';
+import Reserve from './components/Reserve';
 import './App.css';
 
-function App() {
+export default function App() {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const signOut = () => {
+    setUsername('');
+    setPassword('');
+  };
+
   return (
-    <div className="App">
-      <Content />
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/">
+            <HomePage
+              username={username}
+              signOut={signOut}
+            />
+          </Route>
+          <Route path="/sign-in">
+            <SignInPage
+              username={username}
+              password={password}
+              setUsername={setUsername}
+              setPassword={setPassword}
+            />
+          </Route>
+          <Route path="/reserve">
+            <ReservePage
+              username={username}
+              signOut={signOut}
+            />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
-export default App;
+function SignInPage({
+  username, password, setUsername, setPassword,
+}) {
+  return (
+    <>
+      <SignIn
+        username={username}
+        password={password}
+        setUsername={setUsername}
+        setPassword={setPassword}
+      />
+    </>
+  );
+}
+
+function HomePage({ username, password, signOut }) {
+  return (
+    <>
+      { username === ''
+        && <Redirect to="/sign-in" />}
+      <Header
+        username={username}
+        signOut={signOut}
+      />
+      <Home />
+      <Footer />
+    </>
+  );
+}
+
+function ReservePage({ username, password, signOut }) {
+  return (
+    <>
+      { username === ''
+        && <Redirect to="/sign-in" />}
+      <Header
+        username={username}
+        signOut={signOut}
+      />
+      <Reserve />
+      <Footer />
+    </>
+  );
+}

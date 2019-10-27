@@ -1,40 +1,39 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import ritLogo from '../../assets/rit_logo.png';
 import userLogo from '../../assets/user_logo.png';
 import './Header.css';
 
-function AccountMenu({ account }) {
+function AccountMenu({ username, signOut }) {
+  const [redirect, setRedirect] = useState(false);
+  const handleClick = (e) => {
+    e.preventDefault();
+    signOut();
+    setRedirect(true);
+  };
   return (
     <div className="account-menu">
       <span>
         Logged in as:&nbsp;
-        {account.first}
-        &nbsp;
-        {account.last}
+        {username}
       </span>
-      <span>
-        Access:&nbsp;
-        {account.access}
-      </span>
+      <span>Access: Student</span>
+      <a href="#" onClick={handleClick}>Sign Out</a>
+      { redirect
+        && <Redirect to="/sign-in" />}
     </div>
   );
 }
 
-// Fake account for now; replace upon sign-in
-const account = {
-  first: 'Mike',
-  last: 'K',
-  access: 'Student',
-};
-
-export default function Header(/* {account}*/) {
+export default function Header({ username, signOut }) {
   const [showAccount, setShowAccount] = useState(false);
 
   return (
     <div className="Header">
       <div className="heading">
         <a
-          href="http://www.rit.edu" target="_blank"
+          href="http://www.rit.edu"
+          target="_blank"
           rel="noopener noreferrer"
         >
           <img id="rit" src={ritLogo} alt="" width="auto" height="auto" />
@@ -58,7 +57,7 @@ export default function Header(/* {account}*/) {
         </div>
       </div>
       { showAccount
-        && <AccountMenu account={account} />}
+        && <AccountMenu username={username} signOut={signOut} />}
     </div>
   );
 }

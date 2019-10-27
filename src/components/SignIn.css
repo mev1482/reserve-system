@@ -1,18 +1,32 @@
 .SignIn {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  width: 40%;
+  align-items: center;
 }
 
-form {
+.sign-in-container {
+  padding: 10px 10% 5% 10%;
+  background-color: #f5f5f5;
+}
+
+.sign-in-container h1 {
+  text-align: center;
+}
+
+.sign-in-container form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 20em;
+}
+
+.homeLink {
+  /* Position flex item to end of container */
+  margin-left: auto;
 }
 
 input[type="button"] {
   width: 10ch;
   margin: 1%;
-  /* Position flex item to end of container */
-  margin-left: auto;
 }

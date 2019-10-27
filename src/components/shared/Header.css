@@ -2,11 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 1%;
   height: 5em;
   background-color: #F76902;
 }
 
-img {
+.heading img {
   margin: 1em;
 }
 
@@ -26,6 +27,7 @@ img {
   align-items: flex-end;
   position: absolute;
   right: 0;
+  margin-top: -1%;
   z-index: 1000;
   padding: 5px;
   background-color: #dddddd;
