@@ -1,0 +1,29 @@
+.Home {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#reserve-button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25em;
+  height: 3em;
+}
+
+.table-container {
+  text-align: center;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media (max-width: 1024px) {
+  .home-container {
+    flex-direction: column;
+  }
+}
