@@ -1,5 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import Reservations from './home/Reservations';
 import Events from './home/Events';
@@ -30,12 +35,40 @@ const events = [
   createEvent('12/05/19', 'Meet and Greet', 'Liberal Arts Hall', '1:00 PM', '3:00 PM'),
 ];
 
+const useStyles = makeStyles(theme => ({
+  formControl: {
+    margin: theme.spacing(1)
+  }
+}))
+
 export default function Home() {
+  const classes = useStyles();
+  const [location, setLocation] = useState("library");
+
+  const handleChange = e => {
+    setLocation(e.target.value);
+  }
+
   return (
     <div className="Home">
-      <Link className="reserveLink" to="/reserve">
-        <Button id="reserve-button" variant="contained">Reserve</Button>
-      </Link>
+      <div className="form-container">
+        <FormControl className={classes.formControl}>
+          <InputLabel id="label">Choose Location</InputLabel>
+          <Select
+            labelId="label"
+            id="location-select"
+            value={location}
+            onChange={handleChange}
+          >
+            <MenuItem value="library">Wallace Library Study Room</MenuItem>
+            <MenuItem value="magic">MAGIC Specialty Space</MenuItem>
+            <MenuItem value="recreation">Recreation Space</MenuItem>
+          </Select>
+        </FormControl>
+        <Link className="reserveLink" to={`/reserve?location=${location}`}>
+          <Button id="reserve-button" variant="contained">Reserve</Button>
+        </Link>
+      </div>
       <div className="home-container">
         <Reservations
           reservations={reservations}

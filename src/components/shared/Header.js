@@ -19,6 +19,7 @@ function AccountMenu({ username, signOut }) {
       </span>
       <span>Access: Student</span>
       <button
+        id="sign-out-button"
         className="asText"
         onClick={handleClick}
         type="button"
