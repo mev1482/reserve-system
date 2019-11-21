@@ -2,17 +2,27 @@
   display: flex;
   flex-direction: row;
   overflow-x: visible;
+  height: 100%;
+  min-height: 750px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .left-side-reserve {
   flex-grow: 2;
+  padding: 0px;
+  margin: 0px;
 }
 
 
 .middle-reserve{
-  flex-grow: 1;
+  flex-grow: 10;
+  width: 80%;
+  max-height: 750px;
+  padding: 0px;
+  margin: 0px;
 }
 
 .right-side-reserve{
-  flex-grow: 5;
+  flex-grow: 3;
 }

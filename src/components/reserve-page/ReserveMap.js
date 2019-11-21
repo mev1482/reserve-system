@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import FloorLevelButtons from './FloorLevelButtons';
 import ReserveTable from './ReserveTable';
+import './reserve-page.css'
 
 
 class ReserveMap extends React.Component {
@@ -40,18 +41,23 @@ class ReserveMap extends React.Component {
     const selectedFloor = _.get(this.state, 'floorSelected');
     const roomTimeSelected = _.get(this.state, 'roomTimeSelected', false);
     return (
+      <div classname="image-holder">
       <div>
         <FloorLevelButtons
-          floors={['Ground', 'First', 'Second', 'Third',
-            'Fourth']}
+          floors={['Ground Floor', 'First Floor', 'Second Floor', 'Third Floor',
+            'Fourth Floor']}
           changeFloor={this.changeFloor}
         />
+      </div>
+      <div>
         <img
+          className="image"
           src={`./media/${imageArray[selectedFloor]}.jpg`}
           onClick={() => this.showRoomTime()}
           alt="library"
         />
-        {roomTimeSelected ? <ReserveTable numberRooms={1} /> : <></>}
+        {roomTimeSelected ? <ReserveTable numberRooms={1} setPickedRoom={this.props.setPickedRoom} /> : <></>}
+      </div>
       </div>
     );
   }
