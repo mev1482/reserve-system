@@ -39,11 +39,7 @@ export default function App() {
               setPassword={setPassword}
             />
           </Route>
-          <Route path="/reserve">
-            <ReservePage
-              username={username}
-              signOut={signOut}
-            />
+          <Route path="/reserve" component={Reserve}>
           </Route>
         </Switch>
       </div>
