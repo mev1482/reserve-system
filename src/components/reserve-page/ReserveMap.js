@@ -56,7 +56,15 @@ class ReserveMap extends React.Component {
           onClick={() => this.showRoomTime()}
           alt="library"
         />
-        {roomTimeSelected ? <ReserveTable numberRooms={1} setPickedRoom={this.props.setPickedRoom} /> : <></>}
+        {roomTimeSelected ?
+          <ReserveTable
+              floors={[]}
+              columns={this.props.columns}
+              data={this.props.data}
+              setPickedRoom={this.props.setPickedRoom}
+              deselectRoom={this.props.deselectRoom}
+              numberRooms={1}
+              /> : <></>}
       </div>
       </div>
     );

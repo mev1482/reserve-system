@@ -3,12 +3,9 @@ import _ from 'lodash';
 import "react-datepicker/dist/react-datepicker.css"
 
 class Ammenities extends React.Component {
-    constructor(props) {
-      super(props);
-    }
 
     render(){
-      var ammenities = _.get(this.props.displayInformation.room,'ammenities',null);
+      var ammenities = _.get(this.props.displayInformation.selectedRoom,'ammenities',null);
       return (
         <div className="date-picker">
             <h2>Ammenities</h2>
@@ -17,7 +14,7 @@ class Ammenities extends React.Component {
                   <li>Seats: {ammenities.seats}</li>
                   <h4> Includes: </h4>
                   {ammenities.ammenitiesList.map((ammenity) => (
-                    <li classname="ammenity">{ammenity}</li>
+                    <li className="ammenity">{ammenity}</li>
                   ))}
               </ul> :
               <p>No Room Selected</p>

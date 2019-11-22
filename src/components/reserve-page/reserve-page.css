@@ -34,8 +34,13 @@
 .image-holder {
   width: 550px;
 }
+
 .taken {
   background-color: DarkGray;
+}
+
+.selected {
+  background-color: Lime!important;
 }
 
 .available {

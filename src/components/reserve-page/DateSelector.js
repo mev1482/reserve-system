@@ -2,7 +2,6 @@ import React from 'react';
 import DatePicker from "react-datepicker";
 import _ from 'lodash';
 import './reserve-page.css'
-// import TimePicker from 'react-time-picker';
 
 import "react-datepicker/dist/react-datepicker.css"
 
