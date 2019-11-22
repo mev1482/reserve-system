@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 class RightSideBar extends React.Component {
 
@@ -7,7 +7,9 @@ class RightSideBar extends React.Component {
     return (
       <div className="right-side-bar">
         <button onClick={this.props.toggleView}>Toggle</button>
-        <button className="submit-button">Submit</button>
+        <Link className="confirmLink" to={`/confirm`}>
+          <button className="submit-button">Submit</button>
+        </Link>
       </div>
     );
   }

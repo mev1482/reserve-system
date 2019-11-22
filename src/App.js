@@ -10,6 +10,7 @@ import Footer from './components/shared/Footer';
 import SignIn from './components/SignIn';
 import Home from './components/Home';
 import Reserve from './components/Reserve';
+import Confirm from './components/Confirm';
 import './App.css';
 
 export default function App() {
@@ -42,10 +43,16 @@ export default function App() {
           <Route path="/reserve" render={(props) =>
             <ReservePage
               username={username}
-              password={password}
+              signOut={signOut}
               location={props.location}
             />
           }>
+          </Route>
+          <Route path="/confirm">
+            <ConfirmPage
+              username={username}
+              signOut={signOut}
+            />
           </Route>
         </Switch>
       </div>
@@ -98,4 +105,16 @@ function ReservePage({ username, signOut, location }) {
       <Footer />
     </>
   );
+}
+
+function ConfirmPage({ username, signOut }) {
+  return (
+    <>
+      <Header
+        username={username}
+        signOut={signOut}
+      />
+      <Footer />
+    </>
+  )
 }
