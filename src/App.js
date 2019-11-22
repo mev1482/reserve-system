@@ -39,7 +39,13 @@ export default function App() {
               setPassword={setPassword}
             />
           </Route>
-          <Route path="/reserve" component={Reserve}>
+          <Route path="/reserve" render={(props) =>
+            <ReservePage
+              username={username}
+              password={password}
+              location={props.location}
+            />
+          }>
           </Route>
         </Switch>
       </div>
@@ -62,7 +68,7 @@ function SignInPage({
   );
 }
 
-function HomePage({ username, password, signOut }) {
+function HomePage({ username, signOut }) {
   return (
     <>
       { username === ''
@@ -77,7 +83,7 @@ function HomePage({ username, password, signOut }) {
   );
 }
 
-function ReservePage({ username, password, signOut }) {
+function ReservePage({ username, signOut, location }) {
   return (
     <>
       { username === ''
@@ -86,7 +92,9 @@ function ReservePage({ username, password, signOut }) {
         username={username}
         signOut={signOut}
       />
-      <Reserve />
+      <Reserve
+        location={location}
+      />
       <Footer />
     </>
   );
