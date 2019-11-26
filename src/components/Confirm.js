@@ -1,10 +1,17 @@
 import React from 'react';
 import './Confirm.css';
 
-export default function Confirm() {
+class Confirm extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <div className="Confirm">
-    </div>
-  );
+  render() {
+    const classProps = this.props.location.state;
+    return (
+      <div className="Confirm">
+      </div>
+    );
+  }
 }
+export default Confirm;

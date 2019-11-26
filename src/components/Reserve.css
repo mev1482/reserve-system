@@ -3,25 +3,27 @@
   flex-direction: row;
   overflow-x: visible;
   height: 100%;
-  min-height: 750px;
   padding: 0px;
   margin: 0px;
-  min-height: 100vh;
+  min-height: 80vh;
 }
 
 .left-side-reserve {
   flex-grow: 2;
   padding: 0px;
   margin: 0px;
+  margin-left: 5px;
 }
 
 
 .middle-reserve{
   flex-grow: 10;
-  width: 80%;
+  width: 85%;
   max-height: 750px;
   padding: 0px;
   margin: 0px;
+  margin-left: 10px;
+  margin-left: 10px;
 }
 
 .right-side-reserve{

@@ -35,19 +35,19 @@ const events = [
   createEvent('12/05/19', 'Meet and Greet', 'Liberal Arts Hall', '1:00 PM', '3:00 PM'),
 ];
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   formControl: {
-    margin: theme.spacing(1)
-  }
-}))
+    margin: theme.spacing(1),
+  },
+}));
 
 export default function Home() {
   const classes = useStyles();
-  const [location, setLocation] = useState("library");
+  const [location, setLocation] = useState('library');
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setLocation(e.target.value);
-  }
+  };
 
   return (
     <div className="Home">
@@ -65,7 +65,8 @@ export default function Home() {
             <MenuItem value="recreation">Recreation Space</MenuItem>
           </Select>
         </FormControl>
-        <Link className="reserveLink" to={`/reserve?location=${location}`}>
+        <Link className="reserveLink"
+          to={{pathname : `/reserve`, state: {location: location}}}>
           <Button id="reserve-button" variant="contained">Reserve</Button>
         </Link>
       </div>

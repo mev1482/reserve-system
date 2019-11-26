@@ -38,7 +38,7 @@ export default function Header({ username, signOut }) {
   return (
     <div className="Header">
       <div className="heading">
-        <Link to={"/"}>
+        <Link to="/">
           <img id="rit" src={ritLogo} alt="" width="auto" height="auto" />
         </Link>
         <div>
