@@ -15,7 +15,7 @@ class ReserveData extends React.Component {
       dayPortion = i >= 12 ? 'pm' : 'am';
       columnArray.push(
         {
-          name: `${i == 0 ? '12:00' : `${timeToUse}:00`} ` + `${dayPortion}`,
+          name: `${i === 0 ? '12:00' : `${timeToUse}:00`} ${dayPortion}`,
           selector: i,
           sortable: true,
           cell: (row) => (!!row.timesAvailable.includes(i)),
@@ -23,7 +23,7 @@ class ReserveData extends React.Component {
       );
       columnArray.push(
         {
-          name: `${i == 0 ? '12:30' : `${timeToUse}:30`} ` + `${dayPortion}`,
+          name: `${i === 0 ? '12:30' : `${timeToUse}:30`} ${dayPortion}`,
           selector: i + 0.5,
           sortable: true,
           cell: (row) => (!!row.timesAvailable.includes(i)),

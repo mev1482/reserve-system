@@ -2,7 +2,6 @@ import React from 'react';
 import ReserveMap from './reserve-page/ReserveMap';
 import ReserveTable from './reserve-page/ReserveTable';
 import DateSelector from './reserve-page/DateSelector';
-import RightSideBar from './reserve-page/RightSideBar';
 import Ammenities from './reserve-page/Ammenities';
 import ReserveData from './reserve-page/ReserveData';
 import SubmitButton from './reserve-page/SubmitButton';
@@ -171,7 +170,9 @@ class Reserve extends React.Component {
             floors={_.get(state.buildingInfo,'floors',[])}
             floorSelected={state.floorSelected}
             changeFloor={this.setData}
-            toggleView={this.toggleView}/>
+            toggleView={this.toggleView}
+            showMap={state.showMap}
+          />
           {_.get(state, 'showMap', false)
             ? (
               <ReserveMap

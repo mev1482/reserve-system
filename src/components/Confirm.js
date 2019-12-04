@@ -1,7 +1,6 @@
 import React from 'react';
 import RoomInfoDisplay from './confirm-page/RoomInfoDisplay';
 import Equipment from './confirm-page/Equipment';
-import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import './Confirm.css';

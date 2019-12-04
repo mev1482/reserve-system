@@ -1,7 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
-import ButtonGroup from '@material-ui/core/ButtonGroup';
-import ConfirmButton from './ConfirmButton';
 import EquipmentModal from './EquipmentModal';
 import _ from 'lodash';
 import './confirm-page.css'
@@ -49,7 +46,6 @@ class Equipment extends React.Component {
   }
 
   render(){
-  let ammenities = {};
   return (
     <div className="equipment-component">
       <h2 className="black-header">Equipment</h2>

@@ -11,7 +11,7 @@ function SubmitButton(props) {
         className="confirmLink"
         to={{
           pathname: '/confirm'}}>
-        <button className="confirm-button" variant="contained">Submit</button>
+        <Button className="confirm-button" variant="contained">Submit</Button>
       </Link>
     </div>
     )

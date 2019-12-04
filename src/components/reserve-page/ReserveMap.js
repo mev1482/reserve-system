@@ -1,6 +1,5 @@
 import React from 'react';
 import _ from 'lodash';
-import FloorLevelButtons from './FloorLevelButtons';
 import ReserveTable from './ReserveTable';
 import './reserve-page.css';
 
