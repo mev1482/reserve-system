@@ -3,7 +3,6 @@ import _ from 'lodash';
 import './confirm-page.css'
 
 function RoomInfoDisplay(props) {
-  console.log(props.roomAmmenities)
   return (
     <div className="room-info-display-component">
       <h2 className="black-header">Reservation Summary</h2>

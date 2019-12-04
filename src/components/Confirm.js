@@ -57,7 +57,9 @@ class Confirm extends React.Component {
                 pathname: '/',
                 state: {username: this.props.username}
             }}>
-              <button className="confirm-button"  variant="contained">Submit</button>
+              <div className="confirm-button">
+              <Button className="confirm-button" color="primary" variant="contained">Submit</Button>
+              </div>
           </Link>
           </div>
       </div>
