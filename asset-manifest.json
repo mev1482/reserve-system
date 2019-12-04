@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/reserve-system/static/css/main.3cdd1f1b.chunk.css",
+    "main.js": "/reserve-system/static/js/main.aa00dfc5.chunk.js",
+    "main.js.map": "/reserve-system/static/js/main.aa00dfc5.chunk.js.map",
+    "runtime-main.js": "/reserve-system/static/js/runtime-main.d132e903.js",
+    "runtime-main.js.map": "/reserve-system/static/js/runtime-main.d132e903.js.map",
+    "static/css/2.ff9ea1f9.chunk.css": "/reserve-system/static/css/2.ff9ea1f9.chunk.css",
+    "static/js/2.1bc43beb.chunk.js": "/reserve-system/static/js/2.1bc43beb.chunk.js",
+    "static/js/2.1bc43beb.chunk.js.map": "/reserve-system/static/js/2.1bc43beb.chunk.js.map",
+    "index.html": "/reserve-system/index.html",
+    "precache-manifest.40144efa8d0569c14054f6410f40f54c.js": "/reserve-system/precache-manifest.40144efa8d0569c14054f6410f40f54c.js",
+    "service-worker.js": "/reserve-system/service-worker.js",
+    "static/css/2.ff9ea1f9.chunk.css.map": "/reserve-system/static/css/2.ff9ea1f9.chunk.css.map",
+    "static/css/main.3cdd1f1b.chunk.css.map": "/reserve-system/static/css/main.3cdd1f1b.chunk.css.map"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d132e903.js",
+    "static/css/2.ff9ea1f9.chunk.css",
+    "static/js/2.1bc43beb.chunk.js",
+    "static/css/main.3cdd1f1b.chunk.css",
+    "static/js/main.aa00dfc5.chunk.js"
+  ]
+}
