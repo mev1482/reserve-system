@@ -16,36 +16,46 @@ class Reserve extends React.Component {
     this.reserveData = new ReserveData();
     const timeColumns = this.reserveData.createColumns();
     const data = this.reserveData.fakeData(0, 10);
+    const buildingInfo = this.reserveData.buildingInfo(_.get(props.location, 'state.location',null));
 
     this.state = {
       showMap: false,
       timeColumns,
       data,
-      floors: ["first", "second","third"],
+      buildingInfo,
+      floorSelected: 0,
       displayInformation:
           {
             roomSelected: false,
             selectedTime: null,
             selectedRoom: null,
-            building: props.location,
+            building: _.get(props.location, 'state.location',null),
           },
     };
 
     this.toggleView = this.toggleView.bind(this);
     this.setPickedRoom = this.setPickedRoom.bind(this);
     this.setDate = this.setDate.bind(this);
+    this.setData = this.setData.bind(this);
     this.deselectRoom = this.deselectRoom.bind(this);
   }
 
-  setData() {
+  setData(floorSelected) {
     const stateHolder = _.clone(this.state);
-    stateHolder.data = this.reserveData.fakeData(0, this.state.showMap ? 1 : 10);
+    stateHolder.data = this.reserveData.fakeData(0, stateHolder.showMap ? 1 : 10);
+    stateHolder.floorSelected = floorSelected;
+    stateHolder.displayInformation = {
+      roomSelected: false,
+      selectedTime: null,
+      selectedRoom: null,
+      building: null,
+    };
     this.setState(stateHolder);
   }
 
   setPickedRoom(column, data, building) {
+    console.log("ROOM PICKED!");
     const stateHolder = _.clone(this.state);
-    console.log(column, data);
     stateHolder.displayInformation = {
       roomSelected: true,
       selectedTime: column,
@@ -78,6 +88,7 @@ class Reserve extends React.Component {
   }
 
   deselectRoom(time, room) {
+    console.log("ROOM UNPICKED");
     const stateHolder = _.clone(this.state);
     _.forEach(stateHolder.data, (dataSegment) => {
       if (dataSegment.id === room.id) {
@@ -114,7 +125,7 @@ class Reserve extends React.Component {
         <div className="left-side-reserve">
           <DateSelector setDate={this.setDate} />
           <Ammenities displayInformation={state.displayInformation} />
-          <SubmitButton toggleView={this.toggleView} reservationInfo={this.state.displayInformation}/>
+          <SubmitButton reservationInfo={_.clone(this.state.displayInformation)}/>
         </div>
         <div className="middle-reserve">
           <h2>
@@ -124,13 +135,18 @@ class Reserve extends React.Component {
             {' '}
             {state.date}
           </h2>
-          <ButtonSection floors={this.state.floors}/>
+          <ButtonSection
+            floors={_.get(state.buildingInfo,'floors',[])}
+            floorSelected={state.floorSelected}
+            changeFloor={this.setData}
+            toggleView={this.toggleView}/>
           {_.get(state, 'showMap', false)
             ? (
               <ReserveMap
-                floors={[]}
                 columns={state.timeColumns}
                 data={state.data}
+                floorImages={_.get(state.buildingInfo,'floorImages',[])}
+                floorSelected={state.floorSelected}
                 setPickedRoom={this.setPickedRoom}
                 deselectRoom={this.deselectRoom}
               />
@@ -151,7 +167,4 @@ class Reserve extends React.Component {
   }
 }
 
-// <div className="right-side-reserve">
-// <RightSideBar toggleView={this.toggleView} reservationInfo={this.state.displayInformation} />
-// </div>
 export default Reserve;

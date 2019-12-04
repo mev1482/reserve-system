@@ -48,11 +48,12 @@ export default function App() {
             />
           }>
           </Route>
-          <Route path="/confirm">
+          <Route path="/confirm" render={(props) =>
             <ConfirmPage
               username={username}
               signOut={signOut}
-            />
+              location={props.location}
+            />}>
           </Route>
         </Switch>
       </div>
@@ -114,6 +115,7 @@ function ConfirmPage({ username, signOut }) {
         username={username}
         signOut={signOut}
       />
+      <Confirm />
       <Footer />
     </>
   )

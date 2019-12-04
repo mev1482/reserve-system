@@ -7,13 +7,13 @@ import './reserve-page.css'
 function SubmitButton(props) {
     return(
     <div>
-      <Link
+      <Link disabled
         className="confirmLink"
         to={{
           pathname: '/confirm',
-          state: { reservationInformation: props.reservationInfo },
+          state: { reservationInformation: {roomSelected: _.clone(props.reservationInfo.selectedRoom), timeSelected: _.get(props.reservationInfo, 'selectedTime.name',null)}},
         }}>
-        <Button className="submit-button" variant="contained">Submit</Button>
+        <Button className="submit-button" disabled={!props.reservationInfo.roomSelected} variant="contained">Submit</Button>
       </Link>
     </div>
     )

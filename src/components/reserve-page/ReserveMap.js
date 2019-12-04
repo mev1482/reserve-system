@@ -9,12 +9,6 @@ class ReserveMap extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      building: 'Library', // to be taken in as a props attribute,
-      // to be taken in as props attribute
-      floors: ['Ground', 'First', 'Second', 'Third', 'Fourth'],
-      floorSelected: 0,
-      floorImages: ['bottom_floor_library', 'first_floor_library',
-        'second_floor_library', 'third_floor_library', 'fourth_floor_library'],
       roomTimeSelected: false,
     };
 
@@ -37,21 +31,17 @@ class ReserveMap extends React.Component {
   }
 
   render() {
-    const imageArray = _.get(this.state, 'floorImages');
-    const selectedFloor = _.get(this.state, 'floorSelected');
+
+    const imageArray = _.get(this.props, 'floorImages');
+    const selectedFloor = _.get(this.props, 'floorSelected');
     const roomTimeSelected = _.get(this.state, 'roomTimeSelected', false);
+    console.log(imageArray);
+
     return (
       <div>
-        <div>
-          <FloorLevelButtons
-            floors={['Ground Floor', 'First Floor', 'Second Floor', 'Third Floor',
-              'Fourth Floor']}
-            changeFloor={this.changeFloor}
-          />
-        </div>
           <img
             className="image"
-            src={`./media/${imageArray[selectedFloor]}.jpg`}
+            src={`./media/${imageArray[selectedFloor]}`}
             onClick={() => this.showRoomTime()}
             alt="library"
           />

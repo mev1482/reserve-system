@@ -8,8 +8,8 @@ class ButtonSection extends React.Component {
   render() {
     return (
       <div className="button-section">
-        <FloorLevelButtons floors={this.props.floors}/>
-        <Button className="float-right" variant="contained">Toggle View</Button> 
+        <FloorLevelButtons floors={this.props.floors} floorSelected={this.props.floorSelected} changeFloor={this.props.changeFloor}/>
+        <Button className="float-right" variant="contained" onClick={() => this.props.toggleView()}>Toggle View</Button>
       </div>
 
     );

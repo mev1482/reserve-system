@@ -45,6 +45,34 @@ class ReserveData extends React.Component {
     return fakeRoomAvailabilites;
   }
 
+  buildingInfo(building) {
+    console.log(building)
+    if(building === 'recreation') {
+      return (
+        {
+          floors: ['Ground Floor'],
+          floorImages: ['gym_ground.PNG']
+        }
+      )
+    }
+    else if(building === 'magic') {
+      return (
+        {
+          floors: ['First Floor', 'Second Floor'],
+          floorImages: ['magic_first.PNG','magic_second.PNG']
+        }
+      )
+    }
+    else {
+      return (
+        {
+          floors: ['Ground Floor','First Floor', 'Second Floor','Third Floor', 'Fourth Floor'],
+          floorImages: ['library_ground.PNG','library_first.PNG','library_second.PNG','library_third.PNG','library_fourth.PNG']
+        }
+      )
+    }
+  }
+
   fakeData(floorNumber, loopQuantity) {
     const fakeData = [];
     let fakeDataHolder = {};

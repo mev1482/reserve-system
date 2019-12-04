@@ -4,7 +4,12 @@ import ButtonGroup from '@material-ui/core/ButtonGroup';
 
 function FloorLevelButtons(props) {
   const floorButtons = props.floors.map((item, index) =>
-  <Button className="mark" variant="contained" >{item}</Button>);
+      <Button
+        className="mark"
+        variant="contained"
+        disabled={props.floorSelected === index}
+        onClick={() => props.changeFloor(index)}>{item}</Button>
+      );
   return (
     <ButtonGroup>
       {floorButtons}

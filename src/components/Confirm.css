@@ -1,3 +1,6 @@
 .Confirm {
-  min-height: 100vh;
+  min-height: 81vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
