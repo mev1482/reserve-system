@@ -52,7 +52,7 @@ export default function App() {
             <ConfirmPage
               username={username}
               signOut={signOut}
-              location={props.location}
+              location={props.location.state}
             />}>
           </Route>
         </Switch>
@@ -108,14 +108,14 @@ function ReservePage({ username, signOut, location }) {
   );
 }
 
-function ConfirmPage({ username, signOut }) {
+function ConfirmPage({ username, signOut, location }) {
   return (
     <>
       <Header
         username={username}
         signOut={signOut}
       />
-      <Confirm />
+      <Confirm username={username} passedProps={location.reservationInformation}/>
       <Footer />
     </>
   )

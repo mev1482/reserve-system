@@ -33,6 +33,8 @@ class EquipmentModal extends React.Component {
     <>
     <div className={"modal" + (_.get(this.props,'showModal',false) === true ? "" : " not-visible")}>
         <div className="modal-main">
+        <h3 className="black-header">Select Equipment</h3>
+        <div className="equipment-container">
           {_.get(this.props,'availableEquipment',['equipment1','equipment2','equipment3']).map((equipment) => (
             <Button variant="contained" color={
               _.indexOf(_.get(this.state,'selectedEquipment',[]),equipment) !== -1 ?
@@ -40,8 +42,18 @@ class EquipmentModal extends React.Component {
               onClick={_.indexOf(_.get(this.state,'selectedEquipment',[]),equipment) !== -1 ?
               () => this.removeEquipment(equipment) : ()=> this.addEquipment(equipment)}><i>{equipment}</i> </Button>
           ))}
-          <button onClick={() => this.props.closeModal()}>Cancel</button>
-          <button onClick={() => this.props.setEquipment(_.get(state,'selectedEquipment',[]))}>Submit</button>
+         </div>
+          <Button
+            className="float-left"
+            onClick={() => this.props.closeModal()}>Cancel
+          </Button>
+          <Button
+            className="float-right"
+            onClick=
+            {
+              () => this.props.setEquipment(_.get(state,'selectedEquipment',[]))
+            }>Submit
+            </Button>
         </div>
     </div>
     </>

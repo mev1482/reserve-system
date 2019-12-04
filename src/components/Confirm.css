@@ -4,3 +4,11 @@
   flex-direction: row;
   justify-content: center;
 }
+
+.confirm-button {
+  background:#66ff66;
+  font-size: 22px;
+  margin: 80px 10px 10px 150px;
+  width: 280px;
+
+}

@@ -10,11 +10,18 @@ class Equipment extends React.Component {
 
   constructor(props){
     super(props);
+
+    this.fakeData =
+    {
+      library: ['HDMI Cable', 'Calculator', 'Mac Book'],
+      magic: ['VR device','Xbox','Game Controller','Camera','Speakers'],
+      recreation: ['Dodgeballs','Baseballs','Basketballs','Frisbees']
+    }
     this.state =
     {
       showModal: false,
       selectedEquipment: [],
-      availableEquipment: ["godzilla","king kong", "jesus"]
+      availableEquipment: this.fakeData[props.building]
     };
     this.closeModal = this.closeModal.bind(this);
     this.setEquipment = this.setEquipment.bind(this);
@@ -28,6 +35,8 @@ class Equipment extends React.Component {
   }
 
   showModal() {
+    if(this.state.showModal)
+    return;
     var stateHolder = _.clone(this.state);
     stateHolder.showModal = true;
     this.setState(stateHolder);
@@ -44,21 +53,27 @@ class Equipment extends React.Component {
   return (
     <div className="equipment-component">
       <h2 className="black-header">Equipment</h2>
+      <div className="equipment-content">
       {_.get(this.state,'selectedEquipment',[]).length === 0 ?
-        <h2 className="mark">No Equipment Selected</h2> :
+        <h2>No Equipment Selected</h2> :<>
+        <h2>Equipment Currently Selected:</h2>
           <ul className="ammenities-list">
             {_.get(this.state,'selectedEquipment',['equipment1','equipment2','equipment3']).map((equipment) => (
-              <li><i>{equipment}</i></li>
+              <h3 className="display-info"><i>{equipment}</i></h3>
             ))}
-          </ul>}
+          </ul></>}
           <EquipmentModal
+              onBlur={() => this.closeModal()}
               showModal={_.get(this.state,'showModal',false)}
               closeModal={this.closeModal}
               setEquipment={this.setEquipment}
               removeEquipment={this.removeEquipment}
               selectedEquipment={this.state.selectedEquipment}
               availableEquipment={this.state.availableEquipment}/>
-          <button onClick={()=>this.showModal()}>CLICK</button>
+              </div>
+          <div className="select-button-wrapper">
+            <button className="float-right select-button" variant="contained" onClick={()=>this.showModal()}>Select Equipment</button>
+          </div>
     </div>
   )}
 }

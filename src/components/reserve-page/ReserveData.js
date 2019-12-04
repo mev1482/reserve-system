@@ -46,7 +46,6 @@ class ReserveData extends React.Component {
   }
 
   buildingInfo(building) {
-    console.log(building)
     if(building === 'recreation') {
       return (
         {

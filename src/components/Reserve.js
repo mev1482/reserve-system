@@ -54,7 +54,6 @@ class Reserve extends React.Component {
   }
 
   setPickedRoom(column, data, building) {
-    console.log("ROOM PICKED!");
     const stateHolder = _.clone(this.state);
     stateHolder.displayInformation = {
       roomSelected: true,
@@ -88,7 +87,6 @@ class Reserve extends React.Component {
   }
 
   deselectRoom(time, room) {
-    console.log("ROOM UNPICKED");
     const stateHolder = _.clone(this.state);
     _.forEach(stateHolder.data, (dataSegment) => {
       if (dataSegment.id === room.id) {
@@ -120,18 +118,18 @@ class Reserve extends React.Component {
 
   render() {
     const { state } = this;
+    const building =_.get(this.props.location.state,'location')
     return (
       <div className="reserve-main">
         <div className="left-side-reserve">
           <DateSelector setDate={this.setDate} />
           <Ammenities displayInformation={state.displayInformation} />
-          <SubmitButton reservationInfo={_.clone(this.state.displayInformation)}/>
+          <SubmitButton building={building} reservationInfo={_.clone(this.state.displayInformation)}/>
         </div>
         <div className="middle-reserve">
           <h2>
-            {_.capitalize(_.get(this.props.location.state,'location',null))}
-            {' '}
-:
+            {_.capitalize(building)}
+            {' '}:
             {' '}
             {state.date}
           </h2>

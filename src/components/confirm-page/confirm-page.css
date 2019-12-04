@@ -11,6 +11,10 @@
   background-color: #E9E8E8;
 }
 
+.ammenities-list {
+  list-style:none;
+}
+
 .reservation-info{
   padding-left: 10px;
 }
@@ -18,7 +22,7 @@
 /* equipment component */
 .equipment-component {
   width: 500px;
-  height: 600px;
+  height: 500px;
   margin: 0px 0px 0px 15px;
   padding: 0px;
   box-shadow: -2px 2px 10px #888888;
@@ -27,33 +31,24 @@
   background-color: #E9E8E8;
 }
 
-
-/* shared classes */
-.confirm-button{
-  padding: 0px;
-  margin: 0px;
-  width: 500px;
-  height: 100px;
-}
-.mark{
-  padding-left: 70px;
-}
-.ammenities-list {
-  list-style:none;
+.equipment-content {
+  padding-left: 15px;
+  height: 390px;
 }
 
-.black-header {
+.select-button-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.select-button {
+  background-color: #008CBA;
   color: white;
-  background-color: black;
-  margin: 0px;
-  padding-bottom: 5px;
-  text-align: center;
+  font-size: 18px;
+  border-radius: 6px;
 }
 
-.not-visible {
-  visibility: hidden;
-}
-
+/* equipment modal */
 .modal {
   position: fixed;
   top: 0;
@@ -67,8 +62,48 @@
   position:fixed;
   background: white;
   width: 300px;
+
   height: auto;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
+}
+
+.equipment-container {
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  min-height: 200px;
+}
+
+.confirm-button{
+  padding: 0px;
+  margin: 0px;
+  width: 500px;
+  height: 100px;
+}
+
+/* shared classes */
+.float-right {
+  float: right;
+}
+
+.float-left {
+  float: left;
+}
+
+.display-info{
+  padding-left: 70px;
+}
+
+.black-header {
+  color: white;
+  background-color: black;
+  margin: 0px;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+.not-visible {
+  visibility: hidden;
 }

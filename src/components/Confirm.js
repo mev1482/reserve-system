@@ -1,6 +1,8 @@
 import React from 'react';
 import RoomInfoDisplay from './confirm-page/RoomInfoDisplay';
 import Equipment from './confirm-page/Equipment';
+import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 import _ from 'lodash';
 import './Confirm.css';
 
@@ -9,18 +11,21 @@ class Confirm extends React.Component {
   constructor(props) {
     super(props);
 
+    var
+    reservationInformation = props.passedProps,
+    roomSelected = props.passedProps.roomSelected;
 
     this.state={equipmentSelected: []};
     this.reservationInformation =
     {
       roomSelected:
       {
-        ammenities: {seats: 8, ammenitiesList: ['ammenity1','ammenity2']},
-        id: 1,
-        roomNumber: "1001",
-        timeSelected: "1:30 am"
+        ammenities: roomSelected.ammenities,
+        id: roomSelected.id,
+        roomNumber: roomSelected.roomNumber,
       },
-      building: "library"
+      timeSelected: reservationInformation.timeSelected,
+      building: reservationInformation.buildingSelected
     };
 
     this.setEquipment = this.setEquipment.bind(this);
@@ -35,10 +40,27 @@ class Confirm extends React.Component {
   render() {
     return (
       <div className="Confirm">
-          <RoomInfoDisplay />
+          <RoomInfoDisplay
+            username={this.props.username}
+            accountLevel="student"
+            building={this.reservationInformation.building}
+            roomNumber={this.reservationInformation.roomSelected.roomNumber}
+            roomAmmenities={this.reservationInformation.roomSelected.ammenities}
+            time={this.reservationInformation.timeSelected}
+          />
+          <div className="right-side">
           <Equipment
             selectedEquipment={this.state.equipmentSelected}
-            setEquipment={this.setEquipment}/>
+            setEquipment={this.setEquipment}
+            building={this.reservationInformation.building}/>
+          <Link
+              to={{
+                pathname: '/',
+                state: {username: this.props.username}
+            }}>
+              <button className="confirm-button"  variant="contained">Submit</button>
+          </Link>
+          </div>
       </div>
     );
   }
