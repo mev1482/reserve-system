@@ -26,21 +26,7 @@ export default function App() {
     <Router>
       <div>
         <Switch>
-          <Route exact path="/">
-            <HomePage
-              username={username}
-              signOut={signOut}
-            />
-          </Route>
-          <Route path="/sign-in">
-            <SignInPage
-              username={username}
-              password={password}
-              setUsername={setUsername}
-              setPassword={setPassword}
-            />
-          </Route>
-          <Route path="/reserve" render={(props) =>
+          <Route path="/" render={(props) =>
             <ReservePage
               username={username}
               signOut={signOut}
@@ -102,6 +88,7 @@ function ReservePage({ username, signOut, location }) {
       />
       <Reserve
         location={location}
+        username={username}
       />
       <Footer />
     </>

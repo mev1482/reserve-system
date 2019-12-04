@@ -11,13 +11,23 @@ function AccountMenu({ username, signOut }) {
     signOut();
     setRedirect(true);
   };
+  var accessLevel = "Student"
+  if(username === "Mr.Smith") {
+    accessLevel = "Faculty"
+  }
+  else if(username === "mev5063") {
+    accessLevel = "Club Leader";
+  }
+  else {
+    accessLevel = "Student"
+  }
   return (
     <div className="account-menu">
       <span>
         Logged in as:&nbsp;
         {username}
       </span>
-      <span>Access: Student</span>
+      <span>Access: {accessLevel}</span>
       <button
         id="sign-out-button"
         className="asText"

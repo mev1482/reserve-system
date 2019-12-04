@@ -18,9 +18,21 @@ class Reserve extends React.Component {
     const data = this.reserveData.fakeData(0, 10);
     const buildingInfo = this.reserveData.buildingInfo(_.get(props.location, 'state.location',null));
 
+    var canRecur = false;
+    if(props.username === "Mr.Smith") {
+      canRecur = true;
+    }
+    else if(props.username === "mev5063" &&
+       _.get(this.props.location.state,'location') === "recreation") {
+         canRecur =true;
+    }
+
     this.state = {
       showMap: false,
+      endDate: (new Date(Date.now() + 6996e5)).toDateString(),
       timeColumns,
+      canRecur,
+      isRecurring: false,
       data,
       buildingInfo,
       floorSelected: 0,
@@ -38,6 +50,8 @@ class Reserve extends React.Component {
     this.setDate = this.setDate.bind(this);
     this.setData = this.setData.bind(this);
     this.deselectRoom = this.deselectRoom.bind(this);
+    this.isRecurring = this.isRecurring.bind(this);
+    this.setEndDate = this.setEndDate.bind(this);
   }
 
   setData(floorSelected) {
@@ -86,6 +100,25 @@ class Reserve extends React.Component {
     this.setState(stateHolder);
   }
 
+  setEndDate(newDate) {
+    const stateHolder = _.clone(this.state);
+    stateHolder.endDate = newDate.toDateString();
+    stateHolder.displayInformation = {
+      roomSelected: false,
+      selectedTime: null,
+      selectedRoom: null,
+      building: null,
+    };
+    stateHolder.data = this.reserveData.fakeData(0, this.state.showMap ? 1 : 10);
+    this.setState(stateHolder);
+  }
+
+  isRecurring(isRecurring) {
+    var stateHolder = _.clone(this.state);
+    stateHolder.isRecurring = isRecurring;
+    this.setState(stateHolder);
+  }
+
   deselectRoom(time, room) {
     const stateHolder = _.clone(this.state);
     _.forEach(stateHolder.data, (dataSegment) => {
@@ -122,7 +155,7 @@ class Reserve extends React.Component {
     return (
       <div className="reserve-main">
         <div className="left-side-reserve">
-          <DateSelector setDate={this.setDate} />
+          <DateSelector isRecurring={this.isRecurring} setDate={this.setDate} canRecur={state.canRecur} setEndDate={this.setEndDate} />
           <Ammenities displayInformation={state.displayInformation} />
           <SubmitButton building={building} reservationInfo={_.clone(this.state.displayInformation)}/>
         </div>
@@ -132,6 +165,7 @@ class Reserve extends React.Component {
             {' '}:
             {' '}
             {state.date}
+            {this.state.isRecurring ? " - " + this.state.endDate : ''}
           </h2>
           <ButtonSection
             floors={_.get(state.buildingInfo,'floors',[])}
