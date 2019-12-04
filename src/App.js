@@ -91,7 +91,8 @@ function HomePage({ username, signOut }) {
   );
 }
 
-function ReservePage({ username, signOut, location }) {
+function ReservePage({ username, signOut, location })
+{
   return (
     <>
       { username === ''

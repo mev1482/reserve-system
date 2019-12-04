@@ -82,7 +82,7 @@ class DateSelector extends React.Component {
                       onChange={this.handleEndDateChange}/>
                 </div></> : <></>}
           </div>
-          {this.props.canRecur === false ?
+          {this.props.canRecur === true ?
           <div className="recurring-wrapper">
             <Button color={this.state.isRecurring ? "primary" : ""} variant="contained" onClick={() => this.setRecurring()}>Make Recurring</Button>
           </div> : <></>}
